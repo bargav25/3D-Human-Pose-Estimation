@@ -72,6 +72,8 @@ def eval_data_prepare(receptive_field, inputs_2d, inputs_3d):
 
 if __name__ == "__main__":
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+    checkpoint = 'checkpoint'
     
     # Load dataset
     dataset_path = 'data/data_3d_h36m.npz'
@@ -299,6 +301,19 @@ if __name__ == "__main__":
         for param_group in optimizer.param_groups:
             param_group['lr'] *= lr_decay
         epoch += 1
+
+        #### save best checkpoint
+        best_chk_path = os.path.join(checkpoint, 'best_epoch.bin'.format(epoch))
+        if losses_3d_valid[-1] * 1000 < min_loss:
+            min_loss = losses_3d_valid[-1] * 1000
+            print("save best checkpoint")
+            torch.save({
+                'epoch': epoch,
+                'lr': lr,
+                'random_state': train_generator.random_state(),
+                'optimizer': optimizer.state_dict(),
+                'model_pos': model_pos.state_dict(),
+            }, best_chk_path)
 
         # Save training curves after every epoch, as .png images (if requested)
         if epoch > 3:
