@@ -76,9 +76,11 @@ python demo/vis.py --video sample_video.mp4
 
 ## Evaluation
 
-Our models performed as follows on the Human 3.6M benchmark (using teh famous MPJPE a evliuation metric)
-LSTM - 55 MM
-Transformers - 64 MM
+Our models achieved the following performance on the Human3.6M benchmark using the MPJPE evaluation metric:
+
+	•	LSTM_PoseNet: 55 mm
+	•	Transformer-based models: 64 mm
+
 
 The current state-of-the-art (SOTA) performance on this benchmark is around 30 mm, as reported in this paper ([here](https://arxiv.org/pdf/2401.09836))
 
