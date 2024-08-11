@@ -2,6 +2,8 @@
 
 A powerful and flexible framework for 3D human pose estimation, leveraging the strengths of LSTM and transformer-based networks, inspired by the state-of-the-art research in the field.
 
+![Akshat's video](images/akshat_pose_est.gif)
+
 ## Acknowledgements
 
 A significant portion of the code related to data processing and visualization is derived from the following outstanding projects:
