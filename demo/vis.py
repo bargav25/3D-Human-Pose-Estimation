@@ -12,7 +12,7 @@ from tqdm import tqdm
 import copy
 
 sys.path.append(os.getcwd())
-from common.model_bargav import LSTM_PoseNet as Model
+from common.model import LSTM_PoseNet as Model
 from common.camera import *
 
 import matplotlib
